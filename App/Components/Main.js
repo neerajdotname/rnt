@@ -11,6 +11,7 @@ var {
   TextInput,
   TouchableHighlight,
   ActivityIndicator,
+  ActivityIndicatorIOS,
 } = React;
 
 var Main = React.createClass({
@@ -18,7 +19,8 @@ var Main = React.createClass({
   getInitialState: function() {
     return {
       username: '',
-      error: false
+      error: false,
+      isLoading: false
     };
   },
 
@@ -38,6 +40,7 @@ var Main = React.createClass({
     api.getBio(this.state.username)
        .then((res) => {
          if (res.message === 'Not Found') {
+           console.log("user is not found");
            this.setState({
              error: 'User not found',
              isLoading: false
@@ -60,6 +63,10 @@ var Main = React.createClass({
   },
 
   render () {
+    var showErr = (
+      this.state.error ? <Text> { this.state.error } </Text> : <View></View>
+    );
+
     return (
       <View style={styles.mainContainer}>
         <Text style={styles.title}> Search for a github user </Text>
@@ -73,6 +80,13 @@ var Main = React.createClass({
           underlayColor="white">
           <Text style={styles.buttonText}> SEARCH </Text>
         </TouchableHighlight>
+
+        <ActivityIndicatorIOS
+          animating={this.state.isLoading}
+          color='#111'
+          size="large" />
+
+        { showErr }
       </View>
     );
   }
