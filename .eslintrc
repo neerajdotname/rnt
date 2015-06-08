@@ -1,0 +1,40 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "ecmaFeatures": {
+    "arrowFunctions": true,
+    "blockBindings": true,
+    "classes": true,
+    "defaultParams": true,
+    "destructuring": true,
+    "forOf": true,
+    "generators": true,
+    "modules": true,
+    "spread": true,
+    "templateStrings": true,
+    "jsx": true
+  },
+  "rules": {
+    "consistent-return": [0],
+    "key-spacing": [0],
+    "quotes": [0],
+    "new-cap": [0],
+    "no-multi-spaces": [0],
+    "no-shadow": [0],
+
+    // in ReactJS it is commont to have components defined first and then used later. PR #88
+    "no-unused-vars": [0],
+
+    //allow function names starting with underscore statements like this._executeQuery is being flagged. PR #86
+    "no-underscore-dangle": [0],
+
+    //In ReactNavite code it is common to have styles.xxx at the top while styles is defined later. PR #85
+    "no-use-before-define": [0, "nofunc"],
+
+    "comma-dangle": "never"
+  }
+}
