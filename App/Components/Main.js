@@ -6,7 +6,7 @@ var {
   Text,
   View,
   NavigatorIOS,
-  TextINput,
+  TextInput,
   TouchableHighlight,
   ActivityIndicator,
 } = React;
@@ -20,10 +20,21 @@ var Main = React.createClass({
     };
   },
 
+  handleChange(event) {
+    this.setState({
+      username: event.nativeEvent.text
+    });
+  },
+
+
   render () {
     return (
       <View style={styles.mainContainer}>
-        <Text> Search for a github user </Text>
+        <Text style={styles.title}> Search for a github user </Text>
+        <TextInput
+            style={styles.searchInput}
+            value={this.state.username}
+            onChange={this.handleChange.bind(this)} />
       </View>
     );
   }
