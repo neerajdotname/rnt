@@ -13,10 +13,17 @@ var {
 
 var Main = React.createClass({
 
+  getInitialState: function() {
+    return {
+      username: '',
+      error: false
+    };
+  },
+
   render () {
     return (
       <View style={styles.mainContainer}>
-        <Text> Testing the Router </Text>
+        <Text> Search for a github user </Text>
       </View>
     );
   }
