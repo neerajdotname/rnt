@@ -34,7 +34,15 @@ var Main = React.createClass({
         <TextInput
             style={styles.searchInput}
             value={this.state.username}
-            onChange={this.handleChange.bind(this)} />
+            onChange={this.handleChange} />
+        <TouchableHighlight
+          style={styles.button}
+          onPress={this.handleSubmit}
+          underlayColor="white">
+          <Text style={styles.buttonText}> SEARCH </Text>
+        </TouchableHighlight>
+
+
       </View>
     );
   }
