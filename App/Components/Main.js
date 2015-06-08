@@ -6,6 +6,9 @@ var {
   Text,
   View,
   NavigatorIOS,
+  TextINput,
+  TouchableHighlight,
+  ActivityIndicator,
 } = React;
 
 var Main = React.createClass({
