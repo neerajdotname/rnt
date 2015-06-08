@@ -26,6 +26,12 @@ var Main = React.createClass({
     });
   },
 
+  handleSubmit() {
+    this.setState({
+      isLoading: true
+    });
+    console.log('submit', this.state.username);
+  },
 
   render () {
     return (
@@ -41,8 +47,6 @@ var Main = React.createClass({
           underlayColor="white">
           <Text style={styles.buttonText}> SEARCH </Text>
         </TouchableHighlight>
-
-
       </View>
     );
   }
