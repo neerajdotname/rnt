@@ -11,6 +11,7 @@ var {
   StyleSheet,
   Text,
   View,
+  NavigatorIOS,
 } = React;
 
 var githubNotetaker = React.createClass({
