@@ -15,6 +15,7 @@ var Dashboard = React.createClass({
       <View style={styles.container}>
         <Text>
           This is the dashboard
+          { this.props.userInfo }
         </Text>
       </View>
     );
