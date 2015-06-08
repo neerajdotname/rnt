@@ -6,6 +6,8 @@ var React = require('react-native');
     Text,
     View,
     NavigatorIOS,
+    Image,
+    TouchableHighlight,
   } = React;
 
 var Dashboard = React.createClass({
@@ -13,10 +15,8 @@ var Dashboard = React.createClass({
   render () {
     return (
       <View style={styles.container}>
-        <Text>
-          This is the dashboard
-          { this.props.userInfo }
-        </Text>
+        <Image source={{uri: this.props.userInfo.avatar_url}} style={styles.image} />
+        <Text> {this.props.userInfo.avatar_url}</Text>
       </View>
     );
   }
@@ -37,6 +37,6 @@ var styles = StyleSheet.create({
     color: 'white',
     alignSelf: 'center'
   }
-})
+});
 
 module.exports = Dashboard;
