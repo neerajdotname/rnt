@@ -1,6 +1,7 @@
 var React = require('react-native');
 var Separator = require('./Separator');
 var Badge = require('./Badge');
+var Web = require('./Web');
 
 var {
   AppRegistry,
@@ -19,8 +20,13 @@ var Repositories = React.createClass({
     repos: React.PropTypes.array.isRequired
   },
 
-  openPage (url) {
-    console.log(url);
+  openPage(url) {
+    this.props.navigator.push({
+      component: Web,
+      title: 'Web View',
+      passProps: { url }
+
+    });
   },
 
   render () {
@@ -30,7 +36,7 @@ var Repositories = React.createClass({
                                               {repos[index].description}
                                             </Text>
                                             :
-                                            <View />
+                                            <View />;
 
       return (
         <View key={index}>
