@@ -16,6 +16,10 @@ var Dashboard = React.createClass({
     return (
       <View style={styles.container}>
         <Image source={{uri: this.props.userInfo.avatar_url}} style={styles.image} />
+        <TouchableHighlight
+          underlayColor='#88d4f5'>
+            <Text style={styles.buttonText}> View Profile </Text>
+        </TouchableHighlight>
         <Text> {this.props.userInfo.avatar_url}</Text>
       </View>
     );
