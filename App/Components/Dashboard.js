@@ -1,5 +1,7 @@
 var React = require('react-native');
 var Profile = require('./Profile');
+var Repositories = require('./Repositories');
+var api = require('./../Utils/api');
 
   var {
     AppRegistry,
@@ -36,6 +38,18 @@ var Dashboard = React.createClass({
       title: "Profile Page",
       passProps: { userInfo: this.props.userInfo }
     });
+  },
+
+  goToRepos () {
+    var login = this.props.userInfo.login;
+    api.getRepos(login)
+       .then((res) => {
+          this.props.navigator.push({
+            component: Repositories,
+            title: 'Repos',
+            passProps: { userInfo: this.props.userInfo, repos: res }
+          });
+       });
   },
 
   render () {
