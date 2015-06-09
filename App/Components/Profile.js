@@ -1,5 +1,6 @@
 var React = require('react-native');
 var Badge = require('./Badge');
+var Separator = require('./Separator');
 
 var {
   AppRegistry,
@@ -27,8 +28,11 @@ var Profile = React.createClass({
       } else {
         return (
                <View key={index}>
-                <Text style={styles.rowTitle}> {this.getRowTitle(userInfo, item)} </Text>
-                <Text style={styles.rowContent}> {userInfo[item]} </Text>
+                <View style={styles.rowContainer}>
+                  <Text style={styles.rowTitle}> {this.getRowTitle(userInfo, item)} </Text>
+                  <Text style={styles.rowContent}> {userInfo[item]} </Text>
+                </View>
+                <Separator />
                </View>
         );
       }
